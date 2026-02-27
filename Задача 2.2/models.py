@@ -16,6 +16,6 @@ class Feedback(BaseModel):
         for word in words:
             parsed = morph.parse(word)[0]
             normal_form = parsed.normal_form
-            if word in forbidden_words:
+            if normal_form in forbidden_words:
                 raise ValueError(f"Вы написали запрещенное слово: {word}. Помойте рот с мылом! ")
         return value
